@@ -118,7 +118,8 @@ make imp.exe
 # create and execute a batch job to run the model
 #
 
-cat > run.job << EOF1
+cat > run.job.sh << EOF1
+#!/bin/sh
 set -x
  
 cd $CA
@@ -145,8 +146,9 @@ cd $CB
 chmod 644 at*$expno.* 
 
 EOF1
+chmod u+x run.job.sh
 
 
-nohup sh run.job &
+nohup sh run.job.sh &
 
 
